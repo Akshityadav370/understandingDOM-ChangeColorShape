@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dom Assignment</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+
+  <body>
+    <div class="content">
+      
+      <div class="outerbox">
+          <div class="innerbox">
+            <img id = "img" src="6090663.jpg">
+          </div> 
+      </div>
+      
+      <div class="buttons">
+      <button class="back">Change Background
+      </button>
+      </div>
+
+      <div class="buttons">
+      <button class="shape">Change Shape</button>
+      </div>
+
+    </div>
+
+    <script >
+      // changing Background
+      var color = ["#F0F8FF", "#FAEBD7", "#7FFFD4", "#00FFFF", "#7FFF00", "#DC143C", "#FF8C00"];
+      var i = 0;
+      document.querySelector(".back").addEventListener("click", ()=>{
+        i = i<color.length ? ++i:0;
+        document.querySelector(".outerbox").style.background = color[i];
+      })
+
+
+
+      var img = document.getElementById("img");
+document.querySelector(".shape").addEventListener("click", changeShape);
+
+var shapesArr = [
+        //triangle
+        "50% 0%, 0% 100%, 100% 100%",
+        //hexagon
+        "25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%",
+        //trapezoid
+        "20% 0%, 80% 0%, 100% 100%, 0% 100%",
+        //parallelogram
+        "25% 0%, 100% 0%, 75% 100%, 0% 100%"
+        ];
+
+var j = 0;
+function changeShape(){
+  // const randNo = Math.floor(Math.random() * shapesArr.length);
+  
+  j = j < shapesArr.length ? j+1 :0;
+  img.style.setProperty("--shape", shapesArr[j]);
+}
+    </script>
+  </body>
+</html>
